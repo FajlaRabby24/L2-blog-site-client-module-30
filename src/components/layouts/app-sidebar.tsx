@@ -11,38 +11,10 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { IRoute } from "@/types";
 import Link from "next/link";
 import { adminRoutes } from "../../routes/adminRoutes";
 import { userRoutes } from "../../routes/userRoutes";
-
-// This is sample data.
-const data = {
-  versions: ["1.0.1", "1.1.0-alpha", "2.0.0-beta1"],
-  navMain: [
-    {
-      title: "Getting Started",
-      items: [
-        {
-          title: "Write blogs",
-          url: "/dashboard/write-blogs",
-        },
-        {
-          title: "User Dashboard",
-          url: "/user-dashboard",
-        },
-        {
-          title: "Admin Dashboard",
-          url: "/admin-dashboard",
-        },
-        {
-          title: "Analytics",
-          url: "/dashboard/analytics",
-          isActive: true,
-        },
-      ],
-    },
-  ],
-};
 
 export function AppSidebar({
   user,
@@ -50,7 +22,7 @@ export function AppSidebar({
 }: {
   user: { role: string } & React.ComponentProps<typeof Sidebar>;
 }) {
-  let routes = [];
+  let routes: IRoute[] = [];
 
   switch (user.role) {
     case "admin":
@@ -81,7 +53,7 @@ export function AppSidebar({
               <SidebarMenu>
                 {item.items.map((item) => (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild isActive={item.isActive}>
+                    <SidebarMenuButton asChild>
                       <Link href={item.url}>{item.title}</Link>
                     </SidebarMenuButton>
                   </SidebarMenuItem>
