@@ -1,19 +1,9 @@
-import { cookies } from "next/headers";
+import { userSerive } from "@/services/userService";
 import { Button } from "../../components/ui/button";
 
 export default async function Home() {
-  const cookieStore = await cookies();
-  // console.log(cookieStore.get("__next_hmr_refresh_hash__"));
-
-  const res = await fetch(`http://localhost:5000/api/auth/get-session`, {
-    headers: {
-      Cookie: cookieStore.toString(),
-    },
-    cache: "no-store",
-  });
-
-  const session = await res.json();
-  console.log(session);
+  const { data, error } = await userSerive.geSession();
+  console.log(data);
 
   return (
     <div>
