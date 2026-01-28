@@ -17,8 +17,6 @@ export const commentService = {
         });
       }
 
-      console.log(url.toString());
-
       const res = await fetch(url.toString());
       const data = await res.json();
 

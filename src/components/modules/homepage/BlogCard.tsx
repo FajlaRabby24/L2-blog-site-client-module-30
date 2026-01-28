@@ -9,8 +9,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { BlogPost } from "@/types";
+import Link from "next/link";
 
 export function BlogCard({ post }: { post: BlogPost }) {
+  console.log(post);
   return (
     <Card className="relative mx-auto w-full max-w-sm pt-0 ">
       <div className="absolute inset-0 z-30 aspect-video bg-black/35" />
@@ -30,7 +32,9 @@ export function BlogCard({ post }: { post: BlogPost }) {
         </CardDescription>
       </CardHeader>
       <CardFooter>
-        <Button className="w-full">View Event</Button>
+        <Link href={`/blogs/${post.id}`}>
+          <Button className="w-full cursor-pointer">View Event</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
