@@ -19,7 +19,6 @@ interface GetBlogsParams {
 export const blogService = {
   getBlogPosts: async (params?: GetBlogsParams, options?: ServiceOptions) => {
     try {
-      console.log("call from about page");
       // ? when try to data don't cache
       // const res = await fetch(`${env.API_URL}/api/posts`, {
       //   cache: "no-store",
