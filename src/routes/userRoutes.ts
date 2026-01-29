@@ -10,7 +10,7 @@ export const userRoutes: IRoute[] = [
       },
       {
         title: "Create Blog",
-        url: "/create-blog",
+        url: "/user-dashboard/create-blog",
       },
     ],
   },

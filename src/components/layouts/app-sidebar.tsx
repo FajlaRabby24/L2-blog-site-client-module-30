@@ -11,6 +11,7 @@ import {
   SidebarMenuItem,
   SidebarRail,
 } from "@/components/ui/sidebar";
+import { Roles } from "@/constants/role";
 import { IRoute } from "@/types";
 import Link from "next/link";
 import { adminRoutes } from "../../routes/adminRoutes";
@@ -25,22 +26,23 @@ export function AppSidebar({
   let routes: IRoute[] = [];
 
   switch (user.role) {
-    case "admin":
+    case Roles.admin:
       routes = adminRoutes;
       break;
-    case "user":
+    case Roles.user:
       routes = userRoutes;
       break;
     default:
       routes = [];
       break;
   }
+
   return (
     <Sidebar {...props}>
       {/* <SidebarHeader>
         <VersionSwitcher
-          versions={data.versions}
-          defaultVersion={data.versions[0]}
+        versions={data.version}
+        defaultVersion={data.versions[0]}
         />
         <SearchForm />
       </SidebarHeader> */}
