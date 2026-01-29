@@ -11,6 +11,7 @@ import { Field, FieldGroup, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { env } from "@/env";
+import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 const CreateBlogFormServer = () => {
@@ -40,6 +41,11 @@ const CreateBlogFormServer = () => {
       },
       body: JSON.stringify(blogData),
     });
+
+    if (res.ok) {
+      revalidateTag("blogPosts", "max");
+      // updateTag('blogPosts') // User either one of them
+    }
 
     console.log(res);
 
