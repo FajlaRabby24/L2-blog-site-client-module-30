@@ -15,6 +15,7 @@ interface ServiceOptions {
 interface GetBlogsParams {
   isFeatured?: boolean;
   search?: string;
+  page?: string;
 }
 
 export interface IBlogData {
@@ -79,7 +80,7 @@ export const blogService = {
 
       return {
         ok: true,
-        data: data?.data,
+        data: data,
         error: null,
       };
     } catch (error) {

@@ -9,7 +9,7 @@ const CreateBlogPage = async () => {
     <div>
       {/* <CreateBlogFormServer /> */}
       <CreateBlogFormClient />
-      {data?.map((item: BlogPost) => (
+      {data?.data?.map((item: BlogPost) => (
         <p key={item.id}>{item.title}</p>
       ))}
     </div>
