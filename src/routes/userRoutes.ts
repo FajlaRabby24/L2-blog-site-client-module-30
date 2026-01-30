@@ -12,6 +12,10 @@ export const userRoutes: IRoute[] = [
         title: "Create Blog",
         url: "/user-dashboard/create-blog",
       },
+      {
+        title: "History",
+        url: "/user-dashboard/history",
+      },
     ],
   },
 ];
